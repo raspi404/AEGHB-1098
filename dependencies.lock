@@ -1,0 +1,96 @@
+dependencies:
+  espressif/cmake_utilities:
+    component_hash: 351350613ceafba240b761b4ea991e0f231ac7a9f59a9ee901f751bddc0bb18f
+    dependencies:
+    - name: idf
+      require: private
+      version: '>=4.1'
+    source:
+      registry_url: https://components.espressif.com/
+      type: service
+    version: 0.5.3
+  espressif/esp_modem:
+    component_hash: b541c3f5765d3ba062c0d004b9ca6da6d0af908293421c2dbe046c537fb2a011
+    dependencies:
+    - name: idf
+      require: private
+      version: '>=4.1'
+    source:
+      registry_url: https://components.espressif.com
+      type: service
+    version: 1.4.0
+  espressif/iot_bridge:
+    component_hash: 3e76bec97bb82596162249f30951f30daf67ddc5a6d1a625eadcbdd9528a8fb6
+    dependencies:
+    - name: espressif/cmake_utilities
+      registry_url: https://components.espressif.com
+      require: private
+      version: 0.*
+    - name: espressif/esp_modem
+      registry_url: https://components.espressif.com
+      require: private
+      rules:
+      - if: target not in [esp32s2, esp32s3]
+      version: 1.*
+    - name: espressif/esp_modem_usb_dte
+      registry_url: https://components.espressif.com
+      require: private
+      rules:
+      - if: target in [esp32s2, esp32s3]
+      version: 1.*
+    - name: espressif/esp_tinyusb
+      registry_url: https://components.espressif.com
+      require: private
+      rules:
+      - if: target in [esp32s2, esp32s3]
+      - if: idf_version >=5.1.4
+      version: 1.*
+    - name: idf
+      require: private
+      version: '>=5.0'
+    source:
+      registry_url: https://components.espressif.com/
+      type: service
+    version: 1.0.1
+  espressif/qrcode:
+    component_hash: 3b493771bc5d6ad30cbf87c25bf784aada8a08c941504355b55d6b75518ed7bc
+    dependencies: []
+    source:
+      registry_url: https://components.espressif.com/
+      type: service
+    version: 0.1.0~2
+  idf:
+    source:
+      type: idf
+    version: 5.4.1
+  mesh_lite:
+    component_hash: 1bd49d43625737b7f6b7796e9c3895349c36974c1305b88120e99ff32934eea4
+    dependencies:
+    - name: idf
+      version: '>=5.0'
+    - name: espressif/qrcode
+      version: ^0.1.0
+    - name: espressif/iot_bridge
+      version: 1.0.1
+    - name: espressif/cmake_utilities
+      version: 0.*
+    source:
+      git: https://github.com/espressif/esp-mesh-lite.git
+      path: components/mesh_lite
+      type: git
+    version: d991f8d9787eecd36239491a6d45a8e041a42907
+  wifi_provisioning:
+    component_hash: 4efa2f59ab5d5708d4e769528f289ce80a23202b5724e42397c3dd6ff6b4bfda
+    dependencies: []
+    source:
+      git: https://github.com/espressif/esp-mesh-lite.git
+      path: components/wifi_provisioning
+      type: git
+    version: d991f8d9787eecd36239491a6d45a8e041a42907
+direct_dependencies:
+- idf
+- mesh_lite
+- wifi_provisioning
+manifest_hash: 9cde7ab2e7eb696f00b376d4a09319c4865ab224e8a63d81e20e356563bf0be1
+target: esp32c3
+version: 2.0.0

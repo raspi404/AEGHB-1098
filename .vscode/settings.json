@@ -1,0 +1,21 @@
+{
+  "C_Cpp.intelliSenseEngine": "default",
+  "idf.espIdfPathWin": "D:/Espressif/frameworks/esp-idf-v5.4.1/",
+  "idf.pythonInstallPath": "D:\\Espressif\\tools\\idf-python\\3.11.2\\python.exe",
+  "idf.openOcdConfigs": [
+    "board/esp32c3-builtin.cfg"
+  ],
+  "idf.portWin": "COM6",
+  "idf.toolsPathWin": "D:\\Espressif",
+  "idf.customExtraVars": {
+    "IDF_TARGET": "esp32c3"
+  },
+  "files.associations": {
+    "*.c": "c",
+    "stdio.h": "c",
+    "inttypes.h": "c",
+    "esp_mesh_lite.h": "c",
+    "freertos.h": "c"
+  },
+  "idf.flashType": "JTAG"
+}
